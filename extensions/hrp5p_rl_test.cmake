@@ -38,7 +38,7 @@ AddProject(
 
 AddProject(
   hrp5p_rl_qp_controller
-  GITHUB Dhanushvarma/hrp5p_rl_qp_controller
+  GITHUB_PRIVATE Dhanushvarma/hrp5p_rl_qp_controller-dev
   GIT_TAG origin/test/scripted-target
   DEPENDS mc_rtc mc_joystick_plugin
 )
