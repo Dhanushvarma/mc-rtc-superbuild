@@ -20,6 +20,11 @@
     "--cap-add=sys_nice", // Grants the container the CAP_SYS_NICE capability, which allows the container to raise process nice values, set real-time scheduling policies, set CPU affinity, and other operations.
     "--security-opt", // allow core dumps
     "seccomp=unconfined", // allow core dumps
+    "--ulimit=memlock=-1:-1",
+    "--ulimit=rtprio=99",
+    "--ipc=host",
+    "--volume=/dev:/dev",
+    "--device-cgroup-rule=c 166:* rmw",
     // Uncomment for containers requiring use of nvidia GPUs
     // You will need to install NVIDIA Container Toolkit first
     // "--runtime=nvidia",
