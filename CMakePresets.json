@@ -55,6 +55,22 @@
             "cacheVariables": {
                 "BUILD_TESTING": "OFF"
             }
+        },
+        {
+            "name": "manipulability",
+            "displayName": "RelWithDebInfo, Tasks and mc_rtc from Dhanushvarma forks (topic/manipulability-task)",
+            "description": "When switching to this preset from another branch or preset, configure with --fresh so the build cache does not keep the other setup.",
+            "inherits": [
+                "relwithdebinfo"
+            ],
+            "cacheVariables": {
+                "WITH_UR5E": "ON",
+                "WITH_OPENARM": "ON",
+                "MC_RTC_SUPERBUILD_OVERRIDE_Tasks_GITHUB": "Dhanushvarma/Tasks",
+                "MC_RTC_SUPERBUILD_OVERRIDE_Tasks_GIT_TAG": "origin/topic/manipulability-task",
+                "MC_RTC_SUPERBUILD_OVERRIDE_mc_rtc_GITHUB": "Dhanushvarma/mc_rtc",
+                "MC_RTC_SUPERBUILD_OVERRIDE_mc_rtc_GIT_TAG": "origin/topic/manipulability-task"
+            }
         }
     ],
     "buildPresets": [
@@ -98,6 +114,15 @@
             "name": "relwithdebinfo-notests",
             "displayName": "RelWithDebInfo (no tests)",
             "configurePreset": "relwithdebinfo-notests",
+            "configuration": "RelWithDebInfo",
+            "targets": [
+                "install"
+            ]
+        },
+        {
+            "name": "manipulability",
+            "displayName": "RelWithDebInfo",
+            "configurePreset": "manipulability",
             "configuration": "RelWithDebInfo",
             "targets": [
                 "install"
