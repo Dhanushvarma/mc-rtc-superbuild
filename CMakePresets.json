@@ -55,6 +55,33 @@
             "cacheVariables": {
                 "BUILD_TESTING": "OFF"
             }
+        },
+        {
+            "name": "hrp5p",
+            "displayName": "HRP5P deployment stack (bastien-muraccioli forks, no ROS, no Python, no tests)",
+            "description": "mc_rtc, Tasks, tvm, state-observation and mc_state_observation from the forks used by hrp5p_rl_qp_controller (bastien-muraccioli/mc-rtc-superbuild branch hrp5p). Sources go next to this checkout, build and install go to $HOME/workspace-hrp5p so they never mix with another workspace.",
+            "inherits": [
+                "relwithdebinfo-noros-nopython"
+            ],
+            "binaryDir": "$env{HOME}/workspace-hrp5p/build/superbuild",
+            "cacheVariables": {
+                "SOURCE_DESTINATION": "${sourceDir}/../hrp5p-workspace/devel",
+                "BUILD_DESTINATION": "$env{HOME}/workspace-hrp5p/build/projects",
+                "CMAKE_INSTALL_PREFIX": "$env{HOME}/workspace-hrp5p/install",
+                "BUILD_TESTING": "OFF",
+                "BUILD_PARALLEL_JOBS": "8",
+                "WITH_HRP5": "ON",
+                "MC_RTC_SUPERBUILD_OVERRIDE_mc_rtc_GITHUB": "bastien-muraccioli/mc_rtc",
+                "MC_RTC_SUPERBUILD_OVERRIDE_mc_rtc_GIT_TAG": "origin/hrp5p",
+                "MC_RTC_SUPERBUILD_OVERRIDE_Tasks_GITHUB": "bastien-muraccioli/Tasks",
+                "MC_RTC_SUPERBUILD_OVERRIDE_Tasks_GIT_TAG": "origin/master",
+                "MC_RTC_SUPERBUILD_OVERRIDE_tvm_GITHUB": "bastien-muraccioli/tvm",
+                "MC_RTC_SUPERBUILD_OVERRIDE_tvm_GIT_TAG": "origin/master",
+                "MC_RTC_SUPERBUILD_OVERRIDE_state-observation_GITHUB": "bastien-muraccioli/state-observation",
+                "MC_RTC_SUPERBUILD_OVERRIDE_state-observation_GIT_TAG": "origin/master",
+                "MC_RTC_SUPERBUILD_OVERRIDE_mc_state_observation_GITHUB": "bastien-muraccioli/mc_state_observation",
+                "MC_RTC_SUPERBUILD_OVERRIDE_mc_state_observation_GIT_TAG": "origin/main"
+            }
         }
     ],
     "buildPresets": [
@@ -98,6 +125,15 @@
             "name": "relwithdebinfo-notests",
             "displayName": "RelWithDebInfo (no tests)",
             "configurePreset": "relwithdebinfo-notests",
+            "configuration": "RelWithDebInfo",
+            "targets": [
+                "install"
+            ]
+        },
+        {
+            "name": "hrp5p",
+            "displayName": "HRP5P deployment stack",
+            "configurePreset": "hrp5p",
             "configuration": "RelWithDebInfo",
             "targets": [
                 "install"
