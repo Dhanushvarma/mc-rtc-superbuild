@@ -28,9 +28,17 @@ AddProject(
   DEPENDS mc_rtc
 )
 
+# The controller includes mc_joystick_plugin/joystick_inputs.h
+AddProject(
+  mc_joystick_plugin
+  GITHUB bastien-muraccioli/mc_joystick_plugin
+  GIT_TAG origin/main
+  DEPENDS mc_rtc
+)
+
 AddProject(
   hrp5p_rl_qp_controller
   GITHUB Dhanushvarma/hrp5p_rl_qp_controller
   GIT_TAG origin/test/scripted-target
-  DEPENDS mc_rtc
+  DEPENDS mc_rtc mc_joystick_plugin
 )
