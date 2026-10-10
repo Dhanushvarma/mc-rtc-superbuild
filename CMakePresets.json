@@ -71,6 +71,7 @@
                 "BUILD_TESTING": "OFF",
                 "BUILD_PARALLEL_JOBS": "8",
                 "WITH_HRP5": "ON",
+                "WITH_HRP5P_RL_TEST": "ON",
                 "MC_RTC_SUPERBUILD_OVERRIDE_mc_rtc_GITHUB": "bastien-muraccioli/mc_rtc",
                 "MC_RTC_SUPERBUILD_OVERRIDE_mc_rtc_GIT_TAG": "origin/hrp5p",
                 "MC_RTC_SUPERBUILD_OVERRIDE_Tasks_GITHUB": "bastien-muraccioli/Tasks",
