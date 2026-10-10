@@ -44,7 +44,7 @@
     "ghcr.io/devcontainers/features/node:1": {},
     "ghcr.io/arntanguy/nvim-devcontainer-feature/nvim:latest": {},
     "ghcr.io/devcontainers/features/github-cli": { "version": "latest" },
-    "ghcr.io/georgofenbeck/features/lazygit-linuxbinary:1": { "version": "latest" }
+    // "ghcr.io/georgofenbeck/features/lazygit-linuxbinary:1": { "version": "latest" }
   },
 
   "customizations": {
