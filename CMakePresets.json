@@ -55,6 +55,22 @@
             "cacheVariables": {
                 "BUILD_TESTING": "OFF"
             }
+        },
+        {
+            "name": "tof",
+            "displayName": "ToF sensor work (upstream mc_rtc, no ROS, no Python, no tests)",
+            "description": "Sources go next to this checkout, build and install go to $HOME/workspace-tof so they never mix with another workspace.",
+            "inherits": [
+                "relwithdebinfo-noros-nopython"
+            ],
+            "binaryDir": "$env{HOME}/workspace-tof/build/superbuild",
+            "cacheVariables": {
+                "SOURCE_DESTINATION": "${sourceDir}/../tof-workspace/devel",
+                "BUILD_DESTINATION": "$env{HOME}/workspace-tof/build/projects",
+                "CMAKE_INSTALL_PREFIX": "$env{HOME}/workspace-tof/install",
+                "BUILD_TESTING": "OFF",
+                "BUILD_PARALLEL_JOBS": "8"
+            }
         }
     ],
     "buildPresets": [
@@ -98,6 +114,15 @@
             "name": "relwithdebinfo-notests",
             "displayName": "RelWithDebInfo (no tests)",
             "configurePreset": "relwithdebinfo-notests",
+            "configuration": "RelWithDebInfo",
+            "targets": [
+                "install"
+            ]
+        },
+        {
+            "name": "tof",
+            "displayName": "ToF sensor work",
+            "configurePreset": "tof",
             "configuration": "RelWithDebInfo",
             "targets": [
                 "install"
